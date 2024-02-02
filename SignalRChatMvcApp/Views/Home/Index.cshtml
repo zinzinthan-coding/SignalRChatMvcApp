@@ -48,11 +48,15 @@
 
         $('#sendButton').click(function (e) {
             e.preventDefault();
+            if()
             var user = $('#userInput').val();
             var message = $('#messageInput').val();
-            connection.invoke("ServerReceiveMessage", user, message).catch(function (err) {
-                return console.error(err.toString());
-            });
+            $('#messageInput').val('');
+            if (user != null && message != null) {
+                connection.invoke("ServerReceiveMessage", user, message).catch(function (err) {
+                    return console.error(err.toString());
+                });
+            }
         });
 
     </script>
